@@ -66,7 +66,7 @@
     <title>PHP Hotel</title>
 </head>
 <body>
-    <div class="container flex-column d-flex align-items-center mb-5">
+    <div class="container flex-column d-flex align-items-center py-5 pb-5">
 
         <h1 class=" text-uppercase">lista hotel</h1>
 
