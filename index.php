@@ -119,18 +119,22 @@
             <p class="text-center text-uppercase text-primary fw-semibold">La ricerca è andata a buon fine.</p>
             <div class="container d-flex justify-content-center">
                 <!-- ' foreach ' for print data hotels-->
+                <div class="row justify-content-start">
                 <?php foreach($hotels as $hotel) {?>
-                    <div class="card m-2" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title"><?php echo 'Nome:'. ' ' . $hotel['name'] ?></h5>
-                            <h6 class="card-subtitle mb-2 text-body-secondary"><?php echo 'Descrizione:'. ' ' . $hotel['description'] ?></h6>
-                            <p class="card-text"><?php echo 'Parcheggio:'. ' ' . ($hotel['parking'] ? 'true' : 'false') ?></p>
-                            <p class="card-text"><?php echo 'Voto:'. ' ' . $hotel['vote'] ?></p>
-                            <p class="card-text"><?php echo 'Distanza dal centro:'. ' ' . $hotel['distance_to_center'] ?></p>
+                    <div class="col-12 col-sm-8 col-md-4 col-lg-3 d-flex justify-content-center">
+                        <div class="card m-2" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo 'Nome:'. ' ' . $hotel['name'] ?></h5>
+                                <h6 class="card-subtitle mb-2 text-body-secondary"><?php echo 'Descrizione:'. ' ' . $hotel['description'] ?></h6>
+                                <p class="card-text"><?php echo 'Parcheggio:'. ' ' . ($hotel['parking'] ? 'true' : 'false') ?></p>
+                                <p class="card-text"><?php echo 'Voto:'. ' ' . $hotel['vote'] ?></p>
+                                <p class="card-text"><?php echo 'Distanza dal centro:'. ' ' . $hotel['distance_to_center'] ?></p>
+                            </div>
                         </div>
                     </div>
-                    
                 <?php } ?> 
+                </div> 
+                
             </div>
 
         <?php } ?>
