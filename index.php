@@ -39,20 +39,42 @@
         ],
 
     ];
-
-    if (isset($_GET['parking']) || isset($_GET['vote'])) {
-        $filtered_hotels = [];
-    
-        foreach ($hotels as $hotel) {
-            if (isset($_GET['parking']) && $hotel['parking'] == $_GET['parking'] && isset($_GET['vote']) && $hotel['vote'] == $_GET['vote']) {
-                $filtered_hotels[] = $hotel;
+        // verify to both filters set
+        if (isset($_GET['parking']) && isset($_GET['vote'])) {
+            $filtered_hotels = [];
+        
+            foreach ($hotels as $hotel) {
+                if ($hotel['parking'] == $_GET['parking'] && $hotel['vote'] >= $_GET['vote']) {
+                    $filtered_hotels[] = $hotel;
+                }
             }
-    
+        
+            $hotels = $filtered_hotels;
         }
-    
-        $hotels = $filtered_hotels;
-    }
-    
+        // verify to only parking is set
+        elseif (isset($_GET['parking'])) {
+            $filtered_hotels = [];
+        
+            foreach ($hotels as $hotel) {
+                if ($hotel['parking'] == $_GET['parking']) {
+                    $filtered_hotels[] = $hotel;
+                }
+            }
+        
+            $hotels = $filtered_hotels;
+        }
+        // verify to only vote is set
+        elseif (isset($_GET['vote'])) {
+            $filtered_hotels = [];
+        
+            foreach ($hotels as $hotel) {
+                if ($hotel['vote'] >= $_GET['vote']) {
+                    $filtered_hotels[] = $hotel;
+                }
+            }
+        
+            $hotels = $filtered_hotels;
+        }
 
 ?>
 
