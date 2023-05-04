@@ -66,31 +66,44 @@
     <title>PHP Hotel</title>
 </head>
 <body>
-    <form method="GET" action="<?php echo $_SERVER['PHP_SELF']?>">
-        <label for="parking">Parcheggio:</label>
-        <input type="checkbox" name="parking" id="parking" value="1">
+    <div class="container flex-column d-flex align-items-center mb-5">
 
-        <label for="vote">Voto:</label>
-        <input type="number" name="vote" id="vote" min="1" max="5" step="1">
-        
-        <button type="submit">Filtra</button>
-    </form>
-    <h1 class=" text-uppercase">lista hotel</h1>
+        <h1 class=" text-uppercase">lista hotel</h1>
 
-    <?php if (empty($hotels)){ ?>
-        <p>La ricerca non è andata a buon fine.</p>
-    <?php } else{  ?>
+        <form method="GET" action="<?php echo $_SERVER['PHP_SELF']?>">
+            <label for="parking">Parcheggio:</label>
+            <input type="checkbox" name="parking" id="parking" value="true">
 
-         <!-- ' foreach ' for print data hotels-->
-        <?php foreach($hotels as $hotel) {?>
-            <p><?php echo 'Nome:'. ' ' . $hotel['name'] ?></p>
-            <p><?php echo 'Descrizione:'. ' ' . $hotel['description'] ?></p>
-            <p><?php echo 'Parcheggio:'. ' ' . ($hotel['parking'] ? 'true' : 'false') ?></p>
-            <p><?php echo 'Voto:'. ' ' . $hotel['vote'] ?></p>
-            <p><?php echo 'Distanza dal centro:'. ' ' . $hotel['distance_to_center'] ?></p>
-        <?php } ?> 
 
-    <?php } ?>
+            <label for="vote">Voto:</label>
+            <input type="number" name="vote" id="vote" min="1" max="5">
+            
+            <button type="submit">Filtra</button>
+        </form>
+    </div>
+        <?php if (empty($hotels)){ ?>
+            <p>La ricerca non è andata a buon fine.</p>
+        <?php } else{  ?>
+            <div class="container d-flex justify-content-center">
+                <!-- ' foreach ' for print data hotels-->
+                <?php foreach($hotels as $hotel) {?>
+                    <div class="card m-2" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title"><?php echo 'Nome:'. ' ' . $hotel['name'] ?></h5>
+                            <h6 class="card-subtitle mb-2 text-body-secondary"><?php echo 'Descrizione:'. ' ' . $hotel['description'] ?></h6>
+                            <p class="card-text"><?php echo 'Parcheggio:'. ' ' . ($hotel['parking'] ? 'true' : 'false') ?></p>
+                            <p class="card-text"><?php echo 'Voto:'. ' ' . $hotel['vote'] ?></p>
+                            <p class="card-text"><?php echo 'Distanza dal centro:'. ' ' . $hotel['distance_to_center'] ?></p>
+                        </div>
+                    </div>
+                    
+                <?php } ?> 
+            </div>
+
+        <?php } ?>
+
+
+    
       
 </body>
 </html>
