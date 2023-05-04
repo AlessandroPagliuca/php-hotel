@@ -90,22 +90,33 @@
 <body>
     <div class="container flex-column d-flex align-items-center py-5 pb-5">
 
-        <h1 class=" text-uppercase">lista hotel</h1>
+        <h1 class=" text-uppercase p-3">lista hotel</h1>
 
         <form method="GET" action="<?php echo $_SERVER['PHP_SELF']?>">
-            <label for="parking">Parcheggio:</label>
-            <input type="checkbox" name="parking" id="parking" value="true">
+            <p class="text-uppercase fw-semibold">Seleziona le tue preferenze:</p>
+            <div class="d-flex justify-content-center align-items-center pb-3">
+                <div class="p-2">
+                    <!--Parking-->
+                    <label for="parking" class="text-uppercase fw-semibold">Parcheggio:</label>
+                    <input type="checkbox" name="parking" id="parking" value="true">
+                </div>
 
-
-            <label for="vote">Voto:</label>
-            <input type="number" name="vote" id="vote" min="1" max="5">
+                <div class="p-2">
+                    <!--Vote-->
+                    <label for="vote"  class="text-uppercase fw-semibold">Voto:</label>
+                    <input type="number" name="vote" id="vote" min="1" max="5">
+                </div>
+                
+                
+            </div>
             
-            <button type="submit">Filtra</button>
+            <button type="submit" class=" w-100 btn btn-warning fw-semibold text-uppercase">Filtra</button>
         </form>
     </div>
         <?php if (empty($hotels)){ ?>
             <p class="text-center text-uppercase text-danger fw-semibold">La ricerca non è andata a buon fine.</p>
         <?php } else{  ?>
+            <p class="text-center text-uppercase text-primary fw-semibold">La ricerca è andata a buon fine.</p>
             <div class="container d-flex justify-content-center">
                 <!-- ' foreach ' for print data hotels-->
                 <?php foreach($hotels as $hotel) {?>
