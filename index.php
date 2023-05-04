@@ -82,7 +82,7 @@
         </form>
     </div>
         <?php if (empty($hotels)){ ?>
-            <p>La ricerca non è andata a buon fine.</p>
+            <p class="text-center text-uppercase text-danger fw-semibold">La ricerca non è andata a buon fine.</p>
         <?php } else{  ?>
             <div class="container d-flex justify-content-center">
                 <!-- ' foreach ' for print data hotels-->
