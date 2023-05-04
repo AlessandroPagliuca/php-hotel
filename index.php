@@ -40,20 +40,17 @@
 
     ];
 
-    if (isset($_GET['parking']) ?? isset($_GET['vote'])) {
+    if (isset($_GET['parking']) || isset($_GET['vote'])) {
         $filtered_hotels = [];
     
         foreach ($hotels as $hotel) {
             if (isset($_GET['parking']) && $hotel['parking'] == $_GET['parking'] && isset($_GET['vote']) && $hotel['vote'] == $_GET['vote']) {
                 $filtered_hotels[] = $hotel;
-            } else{
-                $hotels;
             }
     
         }
     
         $hotels = $filtered_hotels;
-        //var_dump($hotels);
     }
     
 
