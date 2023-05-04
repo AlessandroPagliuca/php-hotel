@@ -40,6 +40,23 @@
 
     ];
 
+    if (isset($_GET['parking']) ?? isset($_GET['vote'])) {
+        $filtered_hotels = [];
+    
+        foreach ($hotels as $hotel) {
+            if (isset($_GET['parking']) && $hotel['parking'] == $_GET['parking'] && isset($_GET['vote']) && $hotel['vote'] == $_GET['vote']) {
+                $filtered_hotels[] = $hotel;
+            } else{
+                $hotels;
+            }
+    
+        }
+    
+        $hotels = $filtered_hotels;
+        //var_dump($hotels);
+    }
+    
+
 ?>
 
 <!DOCTYPE html>
@@ -52,16 +69,31 @@
     <title>PHP Hotel</title>
 </head>
 <body>
+    <form method="GET" action="<?php echo $_SERVER['PHP_SELF']?>">
+        <label for="parking">Parcheggio:</label>
+        <input type="checkbox" name="parking" id="parking" value="1">
 
+        <label for="vote">Voto:</label>
+        <input type="number" name="vote" id="vote" min="1" max="5" step="1">
+        
+        <button type="submit">Filtra</button>
+    </form>
     <h1 class=" text-uppercase">lista hotel</h1>
-    <?php foreach($hotels as $hotel) {?>
 
-        <p><?php echo 'Nome:'. ' ' . $hotel['name'] ?></p>
-        <p><?php echo 'Descrizione:'. ' ' . $hotel['description'] ?></p>
-        <p><?php echo 'Parcheggio:'. ' ' . ($hotel['parking'] ? 'true' : 'false') ?></p>
-        <p><?php echo 'Voto:'. ' ' . $hotel['vote'] ?></p>
-        <p><?php echo 'Distanza dal centro:'. ' ' . $hotel['distance_to_center'] ?></p>
+    <?php if (empty($hotels)){ ?>
+        <p>La ricerca non è andata a buon fine.</p>
+    <?php } else{  ?>
 
-    <?php } ?>    
+         <!-- ' foreach ' for print data hotels-->
+        <?php foreach($hotels as $hotel) {?>
+            <p><?php echo 'Nome:'. ' ' . $hotel['name'] ?></p>
+            <p><?php echo 'Descrizione:'. ' ' . $hotel['description'] ?></p>
+            <p><?php echo 'Parcheggio:'. ' ' . ($hotel['parking'] ? 'true' : 'false') ?></p>
+            <p><?php echo 'Voto:'. ' ' . $hotel['vote'] ?></p>
+            <p><?php echo 'Distanza dal centro:'. ' ' . $hotel['distance_to_center'] ?></p>
+        <?php } ?> 
+
+    <?php } ?>
+      
 </body>
 </html>
