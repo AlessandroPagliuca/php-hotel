@@ -1,0 +1,16 @@
+
+.card-element{
+    width: 80%;
+    height: 80%;
+    transition: width 0.6s ease-in-out, height 0.6s ease-in-out;;
+}
+
+.card-element:hover {
+    width: 85%;
+    height: 85%;
+    box-shadow: 0rem 0rem 0.6rem rgb(170, 167, 167);
+
+}
+.bg-color{
+    background-color: rgb(0, 0, 0);
+}
