@@ -93,7 +93,7 @@
         <h1 class="text-white text-uppercase p-3">lista hotel</h1>
 
         <form method="GET" action="<?php echo $_SERVER['PHP_SELF']?>">
-            <p class="text-uppercase text-white fw-semibold">Seleziona le tue preferenze:</p>
+            <p class="text-uppercase text-white fw-semibold px-2">Seleziona le tue preferenze:</p>
             <div class="d-flex justify-content-center align-items-center pb-3">
                 <div class="p-2">
                     <!--Parking-->
@@ -122,7 +122,7 @@
                 <div class="row justify-content-start">
                 <?php foreach($hotels as $hotel) {?>
                     <div class="col-12 col-sm-8 col-md-4 col-lg-3 d-flex justify-content-center">
-                        <div class="card m-2" style="width: 18rem;">
+                        <div class="card mx-2 my-3" style="width: 18rem;">
                             <div class="card-body">
                                 <h5 class="card-title"><?php echo 'Nome:'. ' ' . $hotel['name'] ?></h5>
                                 <h6 class="card-subtitle mb-2 text-body-secondary"><?php echo 'Descrizione:'. ' ' . $hotel['description'] ?></h6>
