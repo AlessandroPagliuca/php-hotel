@@ -87,23 +87,23 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <title>PHP Hotel</title>
 </head>
-<body>
+<body class="bg-dark">
     <div class="container flex-column d-flex align-items-center py-5 pb-5">
 
-        <h1 class=" text-uppercase p-3">lista hotel</h1>
+        <h1 class="text-white text-uppercase p-3">lista hotel</h1>
 
         <form method="GET" action="<?php echo $_SERVER['PHP_SELF']?>">
-            <p class="text-uppercase fw-semibold">Seleziona le tue preferenze:</p>
+            <p class="text-uppercase text-white fw-semibold">Seleziona le tue preferenze:</p>
             <div class="d-flex justify-content-center align-items-center pb-3">
                 <div class="p-2">
                     <!--Parking-->
-                    <label for="parking" class="text-uppercase fw-semibold">Parcheggio:</label>
+                    <label for="parking" class="text-white text-uppercase fw-semibold">Parcheggio:</label>
                     <input type="checkbox" name="parking" id="parking" value="true">
                 </div>
 
                 <div class="p-2">
                     <!--Vote-->
-                    <label for="vote"  class="text-uppercase fw-semibold">Voto:</label>
+                    <label for="vote"  class="text-white text-uppercase fw-semibold">Voto:</label>
                     <input type="number" name="vote" id="vote" min="1" max="5">
                 </div>
                 
